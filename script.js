@@ -5,7 +5,8 @@ const level = document.querySelector("#level");
 const club = document.querySelector("#club");
 const submit = document.querySelector("#submit");
 const table = document.querySelector("#table");
-let deleteButtons = document.querySelectorAll(".delete");
+const answers  = document.querySelectorAll(".answers");
+
 
 let people = [];
 let json;
@@ -19,9 +20,10 @@ function getValues(){
         age.value === "" ||
         club.value === ""){
 
-        alert("Complete the form")
+        alert("Fill out the form")
 
     }
+
     else{
         uniqueID = "#" + Math.floor(Math.random() * 9000);
         let Person = {};
@@ -31,6 +33,7 @@ function getValues(){
         Person["Age"] = age.value;
         Person["Level"] = level.value;
         Person["Club"] = club.value;
+
 
         people.push(Person);
         json = JSON.stringify(people);
@@ -59,9 +62,9 @@ function CreateTableFromJSON() {
     var tr = table.insertRow(-1);  
 
     for (var i = 0; i < header.length; i++) {
-            var th = document.createElement("th");      
-            th.innerHTML = header[i];
-            tr.appendChild(th);
+        var th = document.createElement("th");      
+        th.innerHTML = header[i];
+        tr.appendChild(th);
     }
 
     var tr = table.insertRow(-1);   
@@ -69,12 +72,12 @@ function CreateTableFromJSON() {
         tr = table.insertRow(-1);
        
         for (var j = 0; j < header.length; j++) {
-            var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = tableData[i][header[j]];
+            var cell = tr.insertCell(-1);
+            cell.innerHTML = tableData[i][header[j]];
         }        
         
-        var extraTab = tr.insertCell(-1)
-        extraTab.innerHTML = "<button class='delete'>Delete</button>";
+        var extraCell = tr.insertCell(-1)
+        extraCell.innerHTML = "<button class='delete'>Delete</button>";
     }
 
     let deleteButtons = document.querySelectorAll(".delete");

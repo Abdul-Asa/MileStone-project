@@ -2,7 +2,7 @@ body{
     margin: 50px;
 }
 input[type=text] {
-    width: 100%;
+    width: 90%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -11,7 +11,7 @@ input[type=text] {
     box-sizing: border-box;
 }
 [type=number], select{
-    width: 32%;
+    width: 25%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -97,4 +97,13 @@ div{
 }
 .delete:hover {
     background-color: #5b0d0d;
+}
+
+h2,h3{
+    margin: 40px ; 
+    text-align: center;
+    font-size: 50px;
+}
+h3{
+    font-size: 30px;
 }
