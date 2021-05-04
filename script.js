@@ -12,6 +12,8 @@ const club = document.querySelector("#club");
 const submit = document.querySelector("#submit");
 const table = document.querySelector("#table");
 const answers  = document.querySelectorAll(".answers");
+const inputForm = document.querySelector("#inputForm");
+
 //Initializing all the DOM elements
 
 
@@ -19,6 +21,8 @@ let people = [];
 let json;
 let uniqueID;
 let rows = 0;
+
+
 //Initializing variables to be used
 
 //function to store the values of the form
@@ -36,19 +40,21 @@ function getValues(){
         uniqueID = "#" + Math.floor(Math.random() * 9000); //Generates unique ID for each User
         let Person = {};
         Person["ID"] = uniqueID;
-        Person["First name"] = firstName.value;
-        Person["Last name"] = lastName.value;
+        Person["First name"] = firstName.value.charAt(0).toUpperCase() + firstName.value.slice(1);
+        Person["Last name"] = lastName.value.charAt(0).toUpperCase() + lastName.value.slice(1);
         Person["Age"] = age.value;
         Person["Level"] = level.value;
-        Person["Club"] = club.value;
-        
+        Person["Club"] = club.value.charAt(0).toUpperCase() + club.value.slice(1);
+    
 
         people.push(Person);
         json = JSON.stringify(people);
         rows++;
+        inputForm.reset();
         //Stores the object Person in the array people.
         //Turns the array of objects into JSON variable
         //Counts the no. of rows
+        //resets row
     }
     
 }
@@ -92,7 +98,7 @@ function CreateTableFromJSON() {
         //Loop to add each key[value] into a cell on the row
         
         var extraCell = tr.insertCell(-1)
-        extraCell.innerHTML = "<button class='delete'>Delete</button>";
+        extraCell.innerHTML = "<button class='delete'>delete</button>";
         //add an extra cell for the delete button
     }
 
